@@ -20,7 +20,7 @@ Antes de executar o projeto, certifique-se de ter instalado:
 ## Como executar
 
 1. Clone este repositório para o seu ambiente local.
-2. As propriedades do banco de dados já estão no arquivo no arquivo `application.properties` você só precisa criar um banco de dados com o nome CRUD, usuário postgres e senha 123456.
+2. As propriedades do banco de dados já estão no arquivo `application.properties`, você só precisa criar um schema com o nome `crud`, usuário postgres e senha 123456.
 3. Execute o aplicativo usando o Maven ou sua IDE preferida.
 
 ## Contribuição
