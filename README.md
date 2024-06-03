@@ -34,8 +34,5 @@ Este projeto está sob a licença MIT. Consulte o arquivo LICENSE para obter mai
 ## Complementos
 
 Com o projeto rodadando, acesse o endereço abaixo e veja o swagger dos endpoints.
+
 http://localhost:5000/swagger-ui/index.html
-
----
-
-Espero que este exemplo seja útil! Lembre-se de personalizar o conteúdo para refletir o seu próprio projeto e adicionar informações específicas sobre como executá-lo. Se precisar de mais ajuda, estou à disposição! 😊
