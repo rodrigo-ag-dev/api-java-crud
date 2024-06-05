@@ -13,7 +13,7 @@ import br.com.crud.crud.models.CityModel;
 import br.com.crud.crud.repositories.CityRepository;
 
 @RestController
-@RequestMapping("cities")
+@RequestMapping("api/cities")
 public class CityController {
   @Autowired
   private CityRepository cityRepository;

@@ -6,6 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,7 +22,7 @@ import br.com.crud.crud.repositories.CustomerRepository;
 import br.com.crud.crud.repositories.CustomerRepositoryGet;
 
 @RestController
-@RequestMapping("customers")
+@RequestMapping("api/customers")
 public class CustomerController {
   @Autowired
   private CustomerRepository customerRepository;
@@ -45,6 +47,15 @@ public class CustomerController {
   @GetMapping("/list")
   public List<CustomerModelGet> list() {
     return customerRepositoryGet.findAll(Sort.by(Sort.Direction.ASC, "id"));
+  }
+
+  @DeleteMapping("/{id}")
+  public ResponseEntity<String> delete(@PathVariable Long id) {
+    Optional<CustomerModel> customer = customerRepository.findById(id);
+    if (customer.isEmpty())
+      return ResponseEntity.notFound().build();
+    customerRepository.deleteById(id);
+    return ResponseEntity.ok().build();
   }
 
   @PostMapping
