@@ -34,7 +34,7 @@ public class CustomerController {
     Optional<CustomerModelGet> customer = customerRepositoryGet.findById(id);
     if (customer.isEmpty())
       return ResponseEntity.notFound().build();
-    return new ResponseEntity<Optional<CustomerModelGet>>(customer, HttpStatus.OK );
+    return new ResponseEntity<Optional<CustomerModelGet>>(customer, HttpStatus.OK);
   }
 
   @GetMapping("/name/{name}")
@@ -42,7 +42,7 @@ public class CustomerController {
     List<CustomerModelGet> customer = customerRepositoryGet.findByName(name);
     if (customer.isEmpty())
       return ResponseEntity.notFound().build();
-    return new ResponseEntity<List<CustomerModelGet>>(customer, HttpStatus.OK );
+    return new ResponseEntity<List<CustomerModelGet>>(customer, HttpStatus.OK);
   }
 
   @GetMapping("/address/{address}")
@@ -50,7 +50,7 @@ public class CustomerController {
     List<CustomerModelGet> customer = customerRepositoryGet.findByAddress(address);
     if (customer.isEmpty())
       return ResponseEntity.notFound().build();
-    return new ResponseEntity<List<CustomerModelGet>>(customer, HttpStatus.OK );
+    return new ResponseEntity<List<CustomerModelGet>>(customer, HttpStatus.OK);
   }
 
   @GetMapping("/list")
@@ -58,7 +58,7 @@ public class CustomerController {
     List<CustomerModelGet> customer = customerRepositoryGet.findAll(Sort.by(Sort.Direction.ASC, "id"));
     if (customer.isEmpty())
       return ResponseEntity.notFound().build();
-      return new ResponseEntity<List<CustomerModelGet>>(customer, HttpStatus.OK );
+    return new ResponseEntity<List<CustomerModelGet>>(customer, HttpStatus.OK);
   }
 
   @DeleteMapping("/{id}")
