@@ -38,19 +38,19 @@ public class CustomerController {
   }
 
   @GetMapping("/name/{name}")
-  public ResponseEntity<Optional<CustomerModelGet>> getName(@PathVariable String name) {
-    Optional<CustomerModelGet> customer = customerRepositoryGet.findByName(name);
+  public ResponseEntity<List<CustomerModelGet>> getName(@PathVariable String name) {
+    List<CustomerModelGet> customer = customerRepositoryGet.findByName(name);
     if (customer.isEmpty())
       return ResponseEntity.notFound().build();
-    return new ResponseEntity<Optional<CustomerModelGet>>(customer, HttpStatus.OK );
+    return new ResponseEntity<List<CustomerModelGet>>(customer, HttpStatus.OK );
   }
 
   @GetMapping("/address/{address}")
-  public ResponseEntity<Optional<CustomerModelGet>> getAddress(@PathVariable String address) {
-    Optional<CustomerModelGet> customer = customerRepositoryGet.findByName(address);
+  public ResponseEntity<List<CustomerModelGet>> getAddress(@PathVariable String address) {
+    List<CustomerModelGet> customer = customerRepositoryGet.findByAddress(address);
     if (customer.isEmpty())
       return ResponseEntity.notFound().build();
-    return new ResponseEntity<Optional<CustomerModelGet>>(customer, HttpStatus.OK );
+    return new ResponseEntity<List<CustomerModelGet>>(customer, HttpStatus.OK );
   }
 
   @GetMapping("/list")
