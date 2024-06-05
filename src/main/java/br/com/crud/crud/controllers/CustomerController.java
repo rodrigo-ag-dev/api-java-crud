@@ -30,23 +30,35 @@ public class CustomerController {
   private CustomerRepositoryGet customerRepositoryGet;
 
   @GetMapping("/{id}")
-  public Optional<CustomerModelGet> get(@PathVariable Long id) {
-    return customerRepositoryGet.findById(id);
+  public ResponseEntity<Optional<CustomerModelGet>> get(@PathVariable Long id) {
+    Optional<CustomerModelGet> customer = customerRepositoryGet.findById(id);
+    if (customer.isEmpty())
+      return ResponseEntity.notFound().build();
+    return new ResponseEntity<Optional<CustomerModelGet>>(customer, HttpStatus.OK );
   }
 
   @GetMapping("/name/{name}")
-  public List<CustomerModelGet> getName(@PathVariable String name) {
-    return customerRepositoryGet.findByName(name);
+  public ResponseEntity<Optional<CustomerModelGet>> getName(@PathVariable String name) {
+    Optional<CustomerModelGet> customer = customerRepositoryGet.findByName(name);
+    if (customer.isEmpty())
+      return ResponseEntity.notFound().build();
+    return new ResponseEntity<Optional<CustomerModelGet>>(customer, HttpStatus.OK );
   }
 
   @GetMapping("/address/{address}")
-  public List<CustomerModelGet> getAddress(@PathVariable String address) {
-    return customerRepositoryGet.findByAddress(address);
+  public ResponseEntity<Optional<CustomerModelGet>> getAddress(@PathVariable String address) {
+    Optional<CustomerModelGet> customer = customerRepositoryGet.findByName(address);
+    if (customer.isEmpty())
+      return ResponseEntity.notFound().build();
+    return new ResponseEntity<Optional<CustomerModelGet>>(customer, HttpStatus.OK );
   }
 
   @GetMapping("/list")
-  public List<CustomerModelGet> list() {
-    return customerRepositoryGet.findAll(Sort.by(Sort.Direction.ASC, "id"));
+  public ResponseEntity<List<CustomerModelGet>> list() {
+    List<CustomerModelGet> customer = customerRepositoryGet.findAll(Sort.by(Sort.Direction.ASC, "id"));
+    if (customer.isEmpty())
+      return ResponseEntity.notFound().build();
+      return new ResponseEntity<List<CustomerModelGet>>(customer, HttpStatus.OK );
   }
 
   @DeleteMapping("/{id}")
