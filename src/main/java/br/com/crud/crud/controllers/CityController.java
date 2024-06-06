@@ -19,7 +19,7 @@ import br.com.crud.crud.models.CityModel;
 import br.com.crud.crud.repositories.CityRepository;
 
 @RestController
-@RequestMapping("api/cities")
+@RequestMapping("api/v1/cities")
 public class CityController {
   @Autowired
   private CityRepository cityRepository;

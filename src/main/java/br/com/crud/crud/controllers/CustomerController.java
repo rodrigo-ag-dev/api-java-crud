@@ -22,7 +22,7 @@ import br.com.crud.crud.repositories.CustomerRepository;
 import br.com.crud.crud.repositories.CustomerRepositoryGet;
 
 @RestController
-@RequestMapping("api/customers")
+@RequestMapping("api/v1/customers")
 public class CustomerController {
   @Autowired
   private CustomerRepository customerRepository;

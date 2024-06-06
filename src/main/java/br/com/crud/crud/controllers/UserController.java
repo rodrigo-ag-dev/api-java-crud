@@ -19,7 +19,7 @@ import br.com.crud.crud.models.UserModel;
 import br.com.crud.crud.repositories.UserRepository;
 
 @RestController
-@RequestMapping("api/users")
+@RequestMapping("api/v1/users")
 public class UserController {
   @Autowired
   private UserRepository userRepository;
